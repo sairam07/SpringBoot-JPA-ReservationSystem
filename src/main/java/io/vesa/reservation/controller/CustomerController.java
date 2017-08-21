@@ -26,14 +26,31 @@ public class CustomerController {
 	}
 	
 	@RequestMapping("/{id}")
-	public Customer findOne(@PathVariable int id){
+	public Customer findCustomer(@PathVariable int id){
 		return customerService.getCustomer(id);
 	}
 	
+	@RequestMapping("/status")
+	public List<Customer> findStatus(){
+		return customerService.getCustomerStatus();
+	}
+	
 	@RequestMapping(method=RequestMethod.POST,value="/customer")
-	public void addTopic(@RequestBody Customer customer){
-		System.out.println("At add Topic");
+	public void addCustomer(@RequestBody Customer customer){
+		System.out.println("At add Customer");
 		customerService.addCustomer(customer);	
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT,value="/customer")
+	public void updateCustomer(@RequestBody Customer customer){
+		System.out.println("At update Customer");
+		customerService.updateCustomer(customer);	
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE,value="/customer/{id}")
+	public void deleteCustomer(@PathVariable int id){
+		System.out.println("At delete customer");
+		customerService.deleteCustomer(id);	
 	}
 
 

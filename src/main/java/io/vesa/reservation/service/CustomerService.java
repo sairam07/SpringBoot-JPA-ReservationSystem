@@ -23,21 +23,34 @@ public class CustomerService {
 	
 
 	public List<Customer> findAll() {
+		
 		ArrayList<Customer> custList = new ArrayList<Customer>();
 		customerRepository.findAll().forEach(custList::add);
-		
-		return custList;
-		
+		return custList;	
 	}
 
 	public Customer getCustomer(int id) {
 		
 		//return custList.parallelStream().filter(c -> c.getCust_id()==id).findFirst().get();
-		return null;
+		return customerRepository.findOne(id);
 	}
 
 	public void addCustomer(Customer customer) {
 		customerRepository.save(customer);
+	}
+
+	public List<Customer> getCustomerStatus() {
+		return customerRepository.findByStatus();
+	}
+
+	public void updateCustomer(Customer customer) {
+		
+		customerRepository.save(customer);
+	}
+
+	public void deleteCustomer(int id) {
+		// TODO Auto-generated method stub
+		customerRepository.delete(id);
 	}
 	
 	

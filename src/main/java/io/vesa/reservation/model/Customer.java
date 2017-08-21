@@ -24,12 +24,12 @@ public class Customer {
 	
 	
 	
-	public Customer(int cust_id, String firstName, String lastName) {
+	/*public Customer(int cust_id, String firstName, String lastName) {
 		super();
 		this.cust_id = cust_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-	}
+	}*/
 	
 	public int getCust_id() {
 		return cust_id;
