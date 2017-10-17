@@ -14,40 +14,45 @@ import io.vesa.reservation.service.CustomerService;
 
 
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/app/customer")
 public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
 	
-	@RequestMapping("/customer")
+	@RequestMapping("")
 	public List<Customer> findAll(){
+		System.out.println("At find All");
 		return customerService.findAll();
 	}
 	
 	@RequestMapping("/{id}")
 	public Customer findCustomer(@PathVariable int id){
+		System.out.println("At Find By Id" +id);
 		return customerService.getCustomer(id);
 	}
 	
 	@RequestMapping("/status")
 	public List<Customer> findStatus(){
+		System.out.println("At find by status");
 		return customerService.getCustomerStatus();
 	}
 	
-	@RequestMapping(method=RequestMethod.POST,value="/customer")
-	public void addCustomer(@RequestBody Customer customer){
+	@RequestMapping(method=RequestMethod.POST,value="")
+	public Customer addCustomer(@RequestBody Customer customer){
 		System.out.println("At add Customer");
 		customerService.addCustomer(customer);	
+		return customer;
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT,value="/customer")
-	public void updateCustomer(@RequestBody Customer customer){
+	@RequestMapping(method=RequestMethod.PUT,value="")
+	public Customer updateCustomer(@RequestBody Customer customer){
 		System.out.println("At update Customer");
-		customerService.updateCustomer(customer);	
+		customerService.updateCustomer(customer);
+		return customer;
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE,value="/customer/{id}")
+	@RequestMapping(method=RequestMethod.DELETE,value="/{id}")
 	public void deleteCustomer(@PathVariable int id){
 		System.out.println("At delete customer");
 		customerService.deleteCustomer(id);	

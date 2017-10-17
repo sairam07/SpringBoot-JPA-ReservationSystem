@@ -35,17 +35,19 @@ public class CustomerService {
 		return customerRepository.findOne(id);
 	}
 
-	public void addCustomer(Customer customer) {
+	public Customer addCustomer(Customer customer) {
 		customerRepository.save(customer);
+		return customer;
 	}
 
 	public List<Customer> getCustomerStatus() {
 		return customerRepository.findByStatus();
 	}
 
-	public void updateCustomer(Customer customer) {
+	public Customer updateCustomer(Customer customer) {
 		
 		customerRepository.save(customer);
+		return customer;
 	}
 
 	public void deleteCustomer(int id) {

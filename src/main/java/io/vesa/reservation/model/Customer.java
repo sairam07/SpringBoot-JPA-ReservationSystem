@@ -1,12 +1,15 @@
 package io.vesa.reservation.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Customer {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cust_id;
 	private String firstName;
 	private String lastName;
@@ -22,14 +25,6 @@ public class Customer {
 	private String supplement;
 	private String status;
 	
-	
-	
-	/*public Customer(int cust_id, String firstName, String lastName) {
-		super();
-		this.cust_id = cust_id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}*/
 	
 	public int getCust_id() {
 		return cust_id;
