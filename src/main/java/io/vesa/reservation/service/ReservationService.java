@@ -58,6 +58,7 @@ public class ReservationService {
 		// TODO Auto-generated method stub
 		ReservationTable table =tableRepository.findByCustId(cust_id);
 		tableRepository.delete(table);
+		customerRepository.delete(cust_id);
 	}
 	
 	
