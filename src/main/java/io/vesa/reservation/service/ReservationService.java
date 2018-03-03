@@ -56,6 +56,7 @@ public class ReservationService {
 
 	public void deleteTable(int cust_id) {
 		// TODO Auto-generated method stub
+		System.out.println("At Deleting");
 		ReservationTable table =tableRepository.findByCustId(cust_id);
 		tableRepository.delete(table);
 		customerRepository.delete(cust_id);
