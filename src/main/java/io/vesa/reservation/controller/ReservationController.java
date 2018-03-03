@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.vesa.reservation.model.ReservationTable;
 import io.vesa.reservation.service.ReservationService;
 
+@CrossOrigin(origins = "https://venad-web-server.herokuapp.com")
 @RestController
 @RequestMapping("/app/reservation")
 public class ReservationController {
